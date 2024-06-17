@@ -11,7 +11,7 @@
       @endforeach
        </div> 
 
-       <div>
+       <div class="pt-3">
         {{ $jobs->links() }}
        </div>
    
