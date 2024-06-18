@@ -67,6 +67,6 @@ class JobController extends Controller
     {
         $job->delete();
 
-        return redirect('/jobs');
+        return redirect('/jobs'); 
     }
 }
