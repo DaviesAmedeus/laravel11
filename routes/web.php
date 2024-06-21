@@ -9,7 +9,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredUserController;
 
 Route::get('test', function(){
-    Mail::to('amedeusedgar@gmail.com')->send(new JobPosted());
+    
     return 'Done';
 });
 
