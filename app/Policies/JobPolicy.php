@@ -13,4 +13,6 @@ class JobPolicy
         return $job->employer->user->is($user);
 
     }
+
+    
 }

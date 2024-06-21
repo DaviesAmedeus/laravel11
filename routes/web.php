@@ -1,17 +1,24 @@
 <?php
 
+use App\Mail\JobPosted;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use Illuminate\Auth\Middleware\Authorize;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredUserController;
 
+Route::get('test', function(){
+    Mail::to('amedeusedgar@gmail.com')->send(new JobPosted());
+    return 'Done';
+});
+
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
 
 
 Route::get('/jobs', [JobController::class, 'index']);
-Route::get('/jobs/create', [JobController::class, 'create']);
+Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
 Route::get('/jobs/{job}', [JobController::class, 'show']);
 
